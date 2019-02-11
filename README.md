@@ -29,17 +29,17 @@ helm init --upgrade --service-account tiller
 ```
 
 ## Configure Kubernetes dashboard 
-
+```
 kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
-
+```
 ## Create pods
-
+```
 kubectl apply -f user_service.yaml
 kubectl apply -f uber_service.yaml
 kubectl apply -f google_service.yaml
-
+```
 ## Configuring API Gateway 
-
+```
 helm install stable/nginx-ingress --set controller.replicaCount=2
 kubectl apply -f ingress-controller.yaml
-
+```
