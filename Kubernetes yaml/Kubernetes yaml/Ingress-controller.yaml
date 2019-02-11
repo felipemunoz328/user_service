@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hello-world-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /get_time
+        backend:
+          serviceName: uber
+          servicePort: 80
+      - path: /get_latlon
+        backend:
+          serviceName: google
+          servicePort: 80
+      - path: /user
+        backend:
+          serviceName: user
+          servicePort: 80
