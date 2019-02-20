@@ -24,7 +24,7 @@ docker run --name user -p 8080:8080 user_service
 
 ## Installing Helm with azure CLI
 ```
-kubectl apply -f helm-rbac.yaml
+kubectl apply -f https://github.com/felipemunoz328/user_service/blob/master/Kubernetes-yaml/helm-rbac.yaml
 helm init --upgrade --service-account tiller
 ```
 
@@ -34,12 +34,12 @@ kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterr
 ```
 ## Create pods
 ```
-kubectl apply -f user_service.yaml
-kubectl apply -f uber_service.yaml
-kubectl apply -f google_service.yaml
+kubectl apply -f https://github.com/felipemunoz328/user_service/blob/master/Kubernetes-yaml/user_service.yaml
+kubectl apply -f https://github.com/felipemunoz328/user_service/blob/master/Kubernetes-yaml/uber_service.yaml
+kubectl apply -f https://github.com/felipemunoz328/user_service/blob/master/Kubernetes-yaml/google_service.yaml
 ```
 ## Configuring API Gateway 
 ```
 helm install stable/nginx-ingress --set controller.replicaCount=2
-kubectl apply -f ingress-controller.yaml
+kubectl apply -f https://github.com/felipemunoz328/user_service/blob/master/Kubernetes-yaml/Ingress-controller.yaml
 ```
